@@ -1,0 +1,3 @@
+class FrontEndController < ApplicationController
+
+end
