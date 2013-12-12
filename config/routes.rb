@@ -3,11 +3,15 @@ require 'api_constraints'
 MyApp::Application.routes.draw do
 
   constraints subdomain: "www" do
-    resources :customers, controller: "front_end/customers"
+    scope module: :front_end do
+      resources :customers
+    end
   end
 
   constraints subdomain: "admin" do
-    resources :customers, controller: "back_end/customers"
+    scope module: :back_end do
+      resources :customers
+    end
   end
 
   constraints subdomain: "api" do
